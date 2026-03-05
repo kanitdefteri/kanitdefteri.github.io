@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Kanıt Defteri</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #0B3D5C;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .app-name {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 32px;
+        }
+        h2 {
+            color: #0B3D5C;
+            font-size: 20px;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+        p, li {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+        .highlight {
+            background: #e8f4f8;
+            border-left: 4px solid #0B3D5C;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        .date {
+            color: #888;
+            font-size: 14px;
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .lang-switch a {
+            color: #0B3D5C;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <a onclick="switchLang('tr')" id="btn-tr"><strong>TR</strong></a> | 
+            <a onclick="switchLang('en')" id="btn-en">EN</a>
+        </div>
+
+        <!-- TURKISH -->
+        <div id="lang-tr" class="lang-section active">
+            <h1>Gizlilik Politikası</h1>
+            <p class="app-name">Kanıt Defteri — Hemşirelik Kanıt Rehberi</p>
+
+            <div class="highlight">
+                <strong>Kanıt Defteri hiçbir kişisel veri toplamaz, saklamaz veya üçüncü taraflarla paylaşmaz.</strong>
+            </div>
+
+            <h2>1. Veri Toplama</h2>
+            <p>Bu uygulama herhangi bir kişisel veri toplamamaktadır. Uygulama tamamen çevrimdışı çalışır ve internet bağlantısı gerektirmez. Hiçbir kullanıcı verisi sunuculara gönderilmez.</p>
+
+            <h2>2. Yerel Depolama</h2>
+            <p>Aşağıdaki veriler yalnızca cihazınızda yerel olarak saklanır ve hiçbir şekilde dışarıya aktarılmaz:</p>
+            <ul>
+                <li><strong>Favori kanıtlar:</strong> Kaydettiğiniz kanıtların listesi</li>
+                <li><strong>Uygulama tercihleri:</strong> Tema (açık/koyu) ve dil (Türkçe/İngilizce) seçiminiz</li>
+            </ul>
+            <p>Bu veriler cihazınızda SQLite veritabanı ve AsyncStorage aracılığıyla saklanır. Uygulamayı sildiğinizde tüm yerel veriler kalıcı olarak silinir.</p>
+
+            <h2>3. Analitik ve İzleme</h2>
+            <p>Bu uygulama hiçbir analitik aracı, izleme teknolojisi, çerez veya reklam SDK'sı kullanmamaktadır.</p>
+
+            <h2>4. Üçüncü Taraf Hizmetleri</h2>
+            <p>Uygulama hiçbir üçüncü taraf hizmetine veri göndermez. Uygulama içindeki DOI bağlantıları, tıklandığında cihazınızın varsayılan tarayıcısını açar; bu işlem tamamen cihazınızın işletim sistemi tarafından yönetilir.</p>
+
+            <h2>5. Çocukların Gizliliği</h2>
+            <p>Bu uygulama veri toplamadığından, çocukların gizliliğine yönelik özel bir risk taşımamaktadır.</p>
+
+            <h2>6. Değişiklikler</h2>
+            <p>Bu gizlilik politikası güncellenebilir. Değişiklikler bu sayfada yayınlanacaktır.</p>
+
+            <h2>7. İletişim</h2>
+            <p>Gizlilik politikası hakkında sorularınız için: <strong>kanitdefteri@gmail.com</strong></p>
+
+            <p class="date">Son güncelleme: Mart 2026</p>
+        </div>
+
+        <!-- ENGLISH -->
+        <div id="lang-en" class="lang-section">
+            <h1>Privacy Policy</h1>
+            <p class="app-name">Kanıt Defteri — Evidence-Based Nursing Guide</p>
+
+            <div class="highlight">
+                <strong>Kanıt Defteri does not collect, store, or share any personal data with third parties.</strong>
+            </div>
+
+            <h2>1. Data Collection</h2>
+            <p>This application does not collect any personal data. The app works entirely offline and does not require an internet connection. No user data is sent to any server.</p>
+
+            <h2>2. Local Storage</h2>
+            <p>The following data is stored only locally on your device and is never transmitted externally:</p>
+            <ul>
+                <li><strong>Favorite evidence:</strong> Your list of saved evidence items</li>
+                <li><strong>App preferences:</strong> Your theme (light/dark) and language (Turkish/English) selections</li>
+            </ul>
+            <p>This data is stored on your device via SQLite database and AsyncStorage. All local data is permanently deleted when you uninstall the app.</p>
+
+            <h2>3. Analytics and Tracking</h2>
+            <p>This application does not use any analytics tools, tracking technologies, cookies, or advertising SDKs.</p>
+
+            <h2>4. Third-Party Services</h2>
+            <p>The app does not send data to any third-party services. DOI links within the app open your device's default browser when tapped; this action is entirely managed by your device's operating system.</p>
+
+            <h2>5. Children's Privacy</h2>
+            <p>Since this application does not collect any data, it does not pose any specific risk to children's privacy.</p>
+
+            <h2>6. Changes</h2>
+            <p>This privacy policy may be updated. Changes will be published on this page.</p>
+
+            <h2>7. Contact</h2>
+            <p>For questions about this privacy policy: <strong>kanitdefteri@gmail.com</strong></p>
+
+            <p class="date">Last updated: March 2026</p>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-section').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.getElementById('btn-tr').innerHTML = lang === 'tr' ? '<strong>TR</strong>' : 'TR';
+            document.getElementById('btn-en').innerHTML = lang === 'en' ? '<strong>EN</strong>' : 'EN';
+        }
+    </script>
+</body>
+</html>
