@@ -4,825 +4,275 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanıt Defteri — Gizlilik Politikası</title>
-    <meta name="description" content="Kanıt Defteri: Hemşireler ve hemşirelik öğrencileri için kanıta dayalı uygulama rehberi. Gizlilik Politikası.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Kanıt Defteri gizlilik politikası ve uygulama bilgileri.">
     <style>
-        :root {
-            --primary: #0B3D5C;
-            --primary-light: #1a5276;
-            --accent: #2196F3;
-            --accent-soft: #e3f2fd;
-            --bg: #f0f4f8;
-            --card: #ffffff;
-            --text: #2c3e50;
-            --text-secondary: #607d8b;
-            --border: #e8edf2;
-            --gradient-start: #0B3D5C;
-            --gradient-end: #1a6fa0;
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: var(--text);
-            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.75;
+            color: #1d1d1f;
+            background: #fff;
             -webkit-font-smoothing: antialiased;
         }
+        .wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
 
-        /* ─── Hero Header ─── */
-        .hero {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            color: #fff;
-            padding: 60px 20px 50px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        /* Header */
+        .header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e5e5e7;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-        .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-        .hero .app-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .hero .subtitle { font-size: 16px; opacity: 0.9; font-weight: 400; margin-bottom: 24px; }
-        .hero .lang-switch { display: inline-flex; gap: 4px; background: rgba(255,255,255,0.12); border-radius: 8px; padding: 4px; }
-        .hero .lang-switch a {
-            padding: 6px 16px;
-            border-radius: 6px;
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .hero .lang-switch a.active { background: rgba(255,255,255,0.25); color: #fff; }
-
-        /* ─── Navigation Tabs ─── */
-        .nav-tabs {
-            max-width: 860px;
-            margin: -24px auto 0;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-        .nav-tabs-inner {
-            display: flex;
-            background: var(--card);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
-        }
-        .nav-tab {
-            flex: 1;
-            padding: 16px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s;
-            border-bottom: 3px solid transparent;
-        }
-        .nav-tab:hover { color: var(--primary); background: #f8fafc; }
-        .nav-tab.active { color: var(--primary); border-bottom-color: var(--accent); background: var(--accent-soft); }
-        .nav-tab .tab-icon { display: block; font-size: 20px; margin-bottom: 4px; }
-
-        /* ─── Main Content ─── */
-        .main { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-
-        /* ─── Cards ─── */
-        .card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-            border: 1px solid var(--border);
-        }
-        .card h2 {
-            color: var(--primary);
-            font-size: 22px;
+        .header h1 {
+            font-size: 34px;
             font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            letter-spacing: -0.5px;
+            color: #1d1d1f;
+            margin-bottom: 6px;
         }
-        .card h2 .icon { font-size: 24px; }
-        .card h3 {
-            color: var(--primary-light);
+        .header .tagline {
+            font-size: 17px;
+            color: #6e6e73;
+            font-weight: 400;
+        }
+        .lang-toggle {
+            margin-top: 20px;
+            display: inline-flex;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .lang-toggle a {
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6e6e73;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+        .lang-toggle a.active {
+            background: #1d1d1f;
+            color: #fff;
+        }
+        .lang-toggle a:not(.active):hover {
+            background: #f5f5f7;
+        }
+
+        /* Sections */
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+        h3 {
             font-size: 17px;
             font-weight: 600;
-            margin-top: 24px;
-            margin-bottom: 10px;
+            color: #1d1d1f;
+            margin-top: 28px;
+            margin-bottom: 8px;
         }
-        .card p { font-size: 15px; color: #4a5568; margin-bottom: 14px; }
-        .card ul { padding-left: 20px; margin-bottom: 16px; }
-        .card li { font-size: 15px; color: #4a5568; margin-bottom: 8px; }
-        .card li strong { color: var(--text); }
+        p {
+            font-size: 15px;
+            color: #424245;
+            margin-bottom: 16px;
+        }
+        ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        li {
+            font-size: 15px;
+            color: #424245;
+            margin-bottom: 6px;
+        }
+        a { color: #06c; }
 
-        /* ─── Highlight Box ─── */
-        .highlight-box {
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        /* Callout */
+        .callout {
+            background: #f5f5f7;
             border-radius: 12px;
             padding: 20px 24px;
-            margin: 16px 0;
-            border-left: 4px solid var(--accent);
+            margin: 24px 0;
         }
-        .highlight-box.green {
-            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
-            border-left-color: #4caf50;
+        .callout p {
+            margin-bottom: 0;
+            font-weight: 500;
+            color: #1d1d1f;
         }
-        .highlight-box strong { color: var(--primary); }
 
-        /* ─── Stats Grid ─── */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 16px;
-            margin: 20px 0;
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: #e5e5e7;
+            margin: 40px 0;
         }
-        .stat-item {
-            text-align: center;
-            padding: 20px 12px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .stat-number { font-size: 28px; font-weight: 800; color: var(--primary); display: block; }
-        .stat-label { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-top: 4px; }
 
-        /* ─── Feature List ─── */
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .feature-list li:last-child { border-bottom: none; }
-        .feature-list .feat-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-        .feature-list .feat-text strong { display: block; color: var(--text); font-size: 14px; }
-        .feature-list .feat-text span { font-size: 13px; color: var(--text-secondary); }
-
-        /* ─── Evidence Levels ─── */
-        .level-grid { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
-        .level-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            border: 1px solid var(--border);
-        }
-        .level-badge {
-            min-width: 44px;
-            height: 28px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 12px;
-            color: #fff;
-        }
-        .level-text { font-size: 14px; color: var(--text); }
-
-        /* ─── Sources Grid ─── */
-        .source-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin: 16px 0;
-        }
-        .source-item {
-            padding: 16px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            border: 1px solid var(--border);
-            text-align: center;
-        }
-        .source-item .source-name { font-weight: 700; color: var(--primary); font-size: 14px; }
-        .source-item .source-desc { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
-
-        /* ─── Footer ─── */
+        /* Footer */
         .footer {
-            text-align: center;
-            padding: 32px 20px;
-            color: var(--text-secondary);
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e7;
             font-size: 13px;
-            border-top: 1px solid var(--border);
-            max-width: 860px;
-            margin: 0 auto;
+            color: #86868b;
         }
-        .footer a { color: var(--primary); text-decoration: none; }
-
-        /* ─── Responsive ─── */
-        @media (max-width: 600px) {
-            .hero { padding: 40px 16px 36px; }
-            .hero h1 { font-size: 24px; }
-            .card { padding: 20px; }
-            .nav-tab { padding: 12px 8px; font-size: 12px; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .source-grid { grid-template-columns: 1fr; }
-        }
+        .footer a { color: #86868b; }
 
         .lang-section { display: none; }
         .lang-section.active { display: block; }
+
+        @media (max-width: 600px) {
+            .wrapper { padding: 32px 20px 48px; }
+            .header h1 { font-size: 28px; }
+        }
     </style>
 </head>
 <body>
+    <div class="wrapper">
 
-    <!-- ─── HERO ─── -->
-    <header class="hero">
-        <div class="hero-content">
-            <div class="app-icon">📖</div>
+        <div class="header">
             <h1>Kanıt Defteri</h1>
-            <p class="subtitle" id="hero-subtitle">Hemşireler ve hemşirelik öğrencileri için kanıta dayalı uygulama rehberi</p>
-            <div class="lang-switch">
+            <p class="tagline" id="tagline">Gizlilik Politikası ve Uygulama Bilgileri</p>
+            <div class="lang-toggle">
                 <a onclick="switchLang('tr')" id="btn-tr" class="active">Türkçe</a>
                 <a onclick="switchLang('en')" id="btn-en">English</a>
             </div>
         </div>
-    </header>
 
-    <!-- ─── NAV TABS ─── -->
-    <nav class="nav-tabs">
-        <div class="nav-tabs-inner">
-            <div class="nav-tab active" onclick="switchTab('about')">
-                <span class="tab-icon">ℹ️</span>
-                <span id="tab-label-about">Uygulama</span>
-            </div>
-            <div class="nav-tab" onclick="switchTab('privacy')">
-                <span class="tab-icon">🔒</span>
-                <span id="tab-label-privacy">Gizlilik</span>
-            </div>
-            <div class="nav-tab" onclick="switchTab('evidence')">
-                <span class="tab-icon">🔬</span>
-                <span id="tab-label-evidence">Kanıt Düzeyleri</span>
-            </div>
-            <div class="nav-tab" onclick="switchTab('contact')">
-                <span class="tab-icon">✉️</span>
-                <span id="tab-label-contact">İletişim</span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ─── MAIN CONTENT ─── -->
-    <main class="main">
-
-        <!-- ════════════════════ TURKISH ════════════════════ -->
+        <!-- ── TÜRKÇE ── -->
         <div id="lang-tr" class="lang-section active">
 
-            <!-- ABOUT TAB -->
-            <div id="tr-about" class="tab-content active">
-                <div class="card">
-                    <h2><span class="icon">📱</span> Uygulama Hakkında</h2>
-                    <p>Kanıt Defteri, hemşirelerin ve hemşirelik öğrencilerinin klinik uygulamalarında kanıta dayalı en güncel bilgilere hızla erişmelerini sağlamak amacıyla geliştirilmiş ücretsiz bir mobil uygulamadır.</p>
-                    <p>İçerikler; PubMed, Cochrane Library, MEDLINE, Embase ve Scopus gibi uluslararası güvenilir veritabanlarından derlenen sistematik derlemeler, meta-analizler ve klinik uygulama kılavuzlarından oluşmaktadır.</p>
+            <h2>Uygulama Hakkında</h2>
+            <p>Kanıt Defteri, hemşirelerin ve hemşirelik öğrencilerinin klinik ortamda kanıta dayalı bilgiye hızla ulaşabilmesi için geliştirilmiş ücretsiz bir başvuru kaynağıdır. Uygulama içerikleri; PubMed, Cochrane Library, Embase, Scopus ve uluslararası klinik uygulama kılavuzlarından (WHO, NICE, CDC, AHA) derlenerek oluşturulmuştur.</p>
+            <p>Tüm kanıtlar Oxford Kanıta Dayalı Tıp Merkezi sınıflamasına göre derecelendirilmiştir. Uygulama, yara bakımından kardiyovasküler sisteme, pediatriden ruh sağlığına kadar 12 farklı hemşirelik alanında 324'ün üzerinde kanıt içeriği sunmaktadır.</p>
+            <p>Bu proje, Akdeniz Üniversitesi Kumluca Sağlık Bilimleri Fakültesi Hemşirelik Bölümü bünyesinde, Doç. Dr. Aysun Ünal danışmanlığında geliştirilmiştir.</p>
 
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">324+</span>
-                            <span class="stat-label">Kanıt İçeriği</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">12</span>
-                            <span class="stat-label">Kategori</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5</span>
-                            <span class="stat-label">Kaynak Veritabanı</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">2</span>
-                            <span class="stat-label">Dil (TR/EN)</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="divider"></div>
 
-                <div class="card">
-                    <h2><span class="icon">⭐</span> Özellikler</h2>
-                    <ul class="feature-list">
-                        <li>
-                            <div class="feat-icon" style="background:#e3f2fd;">🔍</div>
-                            <div class="feat-text">
-                                <strong>Gelişmiş Arama</strong>
-                                <span>Tam metin arama, kanıt düzeyi, kategori ve veritabanına göre filtreleme</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#fce4ec;">❤️</div>
-                            <div class="feat-text">
-                                <strong>Favori Kaydetme</strong>
-                                <span>Önemli kanıtları favorilere ekleyerek hızlıca erişin</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#e8f5e9;">📊</div>
-                            <div class="feat-text">
-                                <strong>Oxford Kanıt Düzeyleri</strong>
-                                <span>Tüm kanıtlar Oxford sınıflamasına göre derecelendirilmiştir (Ia - V)</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#f3e5f5;">🌙</div>
-                            <div class="feat-text">
-                                <strong>Karanlık Mod</strong>
-                                <span>Göz yormayan karanlık tema desteği</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#fff3e0;">🌐</div>
-                            <div class="feat-text">
-                                <strong>Çift Dil Desteği</strong>
-                                <span>Türkçe ve İngilizce arayüz ve içerik</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#e0f7fa;">📴</div>
-                            <div class="feat-text">
-                                <strong>Çevrimdışı Çalışma</strong>
-                                <span>İnternet bağlantısı gerektirmez, tüm veriler cihazda saklanır</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <h2>Gizlilik Politikası</h2>
 
-                <div class="card">
-                    <h2><span class="icon">🏥</span> Kategoriler</h2>
-                    <p>12 farklı hemşirelik alanında kanıta dayalı içerik:</p>
-                    <div class="source-grid">
-                        <div class="source-item"><span class="source-name">🩹 Yara Bakımı</span></div>
-                        <div class="source-item"><span class="source-name">🛡️ Enfeksiyon Kontrolü</span></div>
-                        <div class="source-item"><span class="source-name">💊 Ağrı Yönetimi</span></div>
-                        <div class="source-item"><span class="source-name">🥗 Beslenme</span></div>
-                        <div class="source-item"><span class="source-name">🫁 Solunum Bakımı</span></div>
-                        <div class="source-item"><span class="source-name">❤️ Kardiyovasküler</span></div>
-                        <div class="source-item"><span class="source-name">💉 İlaç Uygulamaları</span></div>
-                        <div class="source-item"><span class="source-name">⚠️ Hasta Güvenliği</span></div>
-                        <div class="source-item"><span class="source-name">🩸 Diyabet Bakımı</span></div>
-                        <div class="source-item"><span class="source-name">🧠 Ruh Sağlığı</span></div>
-                        <div class="source-item"><span class="source-name">👶 Pediatri</span></div>
-                        <div class="source-item"><span class="source-name">🤰 Kadın Sağlığı</span></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2><span class="icon">🎓</span> Geliştirici</h2>
-                    <p>Bu uygulama, <strong>Akdeniz Üniversitesi Kumluca Sağlık Bilimleri Fakültesi Hemşirelik Bölümü</strong> öğrencilerinin ortak çalışmasıyla geliştirilmiştir.</p>
-                    <div class="highlight-box">
-                        <strong>Danışman:</strong> Doç. Dr. Aysun ÜNAL<br>
-                        <strong>Proje Yöneticisi:</strong> Murat ALİM
-                    </div>
-                </div>
+            <div class="callout">
+                <p>Kanıt Defteri hiçbir kişisel veri toplamaz, hiçbir sunucuya veri göndermez ve üçüncü taraflarla herhangi bir bilgi paylaşmaz.</p>
             </div>
 
-            <!-- PRIVACY TAB -->
-            <div id="tr-privacy" class="tab-content">
-                <div class="card">
-                    <h2><span class="icon">🔒</span> Gizlilik Politikası</h2>
+            <h3>Veri Toplama</h3>
+            <p>Uygulama tamamen çevrimdışı çalışır ve internet bağlantısı gerektirmez. Kullanıcıya ait hiçbir bilgi — kimlik, konum, kullanım alışkanlığı veya sağlık verisi dahil — toplanmaz, işlenmez veya herhangi bir sunucuya iletilmez.</p>
 
-                    <div class="highlight-box green">
-                        <strong>Kanıt Defteri hiçbir kişisel veri toplamaz, saklamaz veya üçüncü taraflarla paylaşmaz.</strong>
-                    </div>
+            <h3>Cihaz Üzerinde Saklanan Veriler</h3>
+            <p>Aşağıdaki tercihler yalnızca sizin cihazınızda yerel olarak saklanır:</p>
+            <ul>
+                <li>Favorilere eklediğiniz kanıtların listesi</li>
+                <li>Tema tercihiniz (açık veya koyu)</li>
+                <li>Dil tercihiniz (Türkçe veya İngilizce)</li>
+            </ul>
+            <p>Bu veriler cihazınızdaki SQLite veritabanı ve AsyncStorage ile saklanır; dışarıya hiçbir şekilde aktarılmaz. Uygulamayı kaldırdığınızda bu veriler de kalıcı olarak silinir.</p>
 
-                    <h3>1. Veri Toplama</h3>
-                    <p>Bu uygulama herhangi bir kişisel veri toplamamaktadır. Uygulama tamamen çevrimdışı çalışır ve internet bağlantısı gerektirmez. Hiçbir kullanıcı verisi sunuculara gönderilmez.</p>
+            <h3>Analitik, Reklam ve İzleme</h3>
+            <p>Uygulamada analitik aracı, reklam SDK'sı, çerez veya izleme teknolojisi kullanılmamaktadır. Kullanıcı davranışları hiçbir biçimde takip edilmez.</p>
 
-                    <h3>2. Yerel Depolama</h3>
-                    <p>Aşağıdaki veriler yalnızca cihazınızda yerel olarak saklanır ve hiçbir şekilde dışarıya aktarılmaz:</p>
-                    <ul>
-                        <li><strong>Favori kanıtlar:</strong> Kaydettiğiniz kanıtların listesi</li>
-                        <li><strong>Uygulama tercihleri:</strong> Tema (açık/koyu) ve dil (Türkçe/İngilizce) seçiminiz</li>
-                    </ul>
-                    <p>Bu veriler cihazınızda SQLite veritabanı ve AsyncStorage aracılığıyla saklanır. Uygulamayı sildiğinizde tüm yerel veriler kalıcı olarak silinir.</p>
+            <h3>Üçüncü Taraf Bağlantıları</h3>
+            <p>Kanıt detay sayfalarındaki DOI bağlantıları, tıklandığında cihazınızın varsayılan tarayıcısını açar. Bu işlem işletim sistemi tarafından gerçekleştirilir; uygulama bu süreçte herhangi bir veri aktarımı yapmaz.</p>
 
-                    <h3>3. Analitik ve İzleme</h3>
-                    <p>Bu uygulama hiçbir analitik aracı, izleme teknolojisi, çerez veya reklam SDK'sı kullanmamaktadır.</p>
+            <h3>Çocukların Gizliliği</h3>
+            <p>Uygulama hiçbir kullanıcı verisi toplamadığından, çocukların gizliliğine ilişkin ek bir risk bulunmamaktadır.</p>
 
-                    <h3>4. Üçüncü Taraf Hizmetleri</h3>
-                    <p>Uygulama hiçbir üçüncü taraf hizmetine veri göndermez. Uygulama içindeki DOI bağlantıları, tıklandığında cihazınızın varsayılan tarayıcısını açar; bu işlem tamamen cihazınızın işletim sistemi tarafından yönetilir.</p>
+            <h3>Politika Güncellemeleri</h3>
+            <p>Bu gizlilik politikası gerektiğinde güncellenebilir. Güncellemeler bu sayfa üzerinden yayınlanır.</p>
 
-                    <h3>5. Çocukların Gizliliği</h3>
-                    <p>Bu uygulama veri toplamadığından, çocukların gizliliğine yönelik özel bir risk taşımamaktadır.</p>
+            <div class="divider"></div>
 
-                    <h3>6. Değişiklikler</h3>
-                    <p>Bu gizlilik politikası güncellenebilir. Değişiklikler bu sayfada yayınlanacaktır.</p>
+            <h2>Sorumluluk Reddi</h2>
+            <p>Kanıt Defteri eğitim amaçlı geliştirilmiştir ve profesyonel tıbbi tavsiye yerine geçmez. Klinik kararlar hastanın bireysel durumuna, kurumsal protokollere ve sorumlu hekimin değerlendirmesine göre verilmelidir. İçeriklerin güncelliği düzenli olarak kontrol edilmekle birlikte, en doğru bilgi için her zaman birincil kaynaklara başvurmanız önerilir.</p>
 
-                    <p style="color:#888; font-size:13px; margin-top:24px; padding-top:16px; border-top:1px solid #eee;">Son güncelleme: Mart 2026</p>
-                </div>
-            </div>
+            <h2>Telif Hakları</h2>
+            <p>Uygulama içerikleri, bilimsel araştırma bulgularının özgün ifadelerle özetlenmesiyle oluşturulmuştur; hiçbir makale tam metin olarak kopyalanmamıştır. Kaynakça bölümlerindeki bibliyografik bilgiler uluslararası atıf standartlarına uygun olarak sunulmaktadır. Bu uygulama, 5846 sayılı Fikir ve Sanat Eserleri Kanunu Madde 33 kapsamında eğitim amaçlı adil kullanım ilkesine uygundur.</p>
 
-            <!-- EVIDENCE LEVELS TAB -->
-            <div id="tr-evidence" class="tab-content">
-                <div class="card">
-                    <h2><span class="icon">🔬</span> Kanıt Düzeyleri</h2>
-                    <p>Kanıt düzeyleri, araştırmaların güvenilirlik ve kalite sıralamasını gösterir. Bu uygulama, <strong>Oxford Tıp Fakültesi Kanıt Düzeyi Sınıflamasını</strong> temel almaktadır.</p>
+            <div class="divider"></div>
 
-                    <div class="level-grid">
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#1a5276,#2980b9);">Ia</span>
-                            <span class="level-text"><strong>Sistematik Derleme / Meta-analiz</strong> — En güçlü kanıt düzeyi</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#1e8449,#27ae60);">Ib</span>
-                            <span class="level-text"><strong>Randomize Kontrollü Çalışma</strong> — Güçlü kanıt düzeyi</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#7d3c98,#a569bd);">IIa</span>
-                            <span class="level-text"><strong>Kontrollü Çalışma</strong> — Orta-güçlü kanıt düzeyi</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#d4ac0d,#f1c40f);">IIb</span>
-                            <span class="level-text"><strong>Yarı-Deneysel Çalışma</strong> — Orta kanıt düzeyi</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#e67e22,#f39c12);">III</span>
-                            <span class="level-text"><strong>Tanımlayıcı Çalışma</strong> — Karşılaştırmalı, korelasyonel</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#cb4335,#e74c3c);">IV</span>
-                            <span class="level-text"><strong>Uzman Komitesi Görüşü</strong> — Klinik deneyim</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#7f8c8d,#95a5a6);">V</span>
-                            <span class="level-text"><strong>Vaka Raporu / Uzman Görüşü</strong></span>
-                        </div>
-                    </div>
-                </div>
+            <h2>İletişim</h2>
+            <p>Sorularınız için: <a href="mailto:kanitdefteri@gmail.com">kanitdefteri@gmail.com</a></p>
+            <p>Akdeniz Üniversitesi · Kumluca Sağlık Bilimleri Fakültesi · Hemşirelik Bölümü · Antalya</p>
 
-                <div class="card">
-                    <h2><span class="icon">📚</span> Kaynak Veritabanları</h2>
-                    <div class="source-grid">
-                        <div class="source-item">
-                            <span class="source-name">PubMed</span>
-                            <div class="source-desc">ABD Ulusal Tıp Kütüphanesi biyomedikal literatür veritabanı</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Cochrane Library</span>
-                            <div class="source-desc">Sistematik derlemeler ve meta-analizlerin altın standardı</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Embase</span>
-                            <div class="source-desc">Elsevier farmakoloji ve biyomedikal araştırma veritabanı</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Scopus</span>
-                            <div class="source-desc">Dünyanın en geniş öz ve atıf veritabanı</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Klinik Kılavuzlar</span>
-                            <div class="source-desc">WHO, NICE, CDC, AHA rehberleri</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CONTACT TAB -->
-            <div id="tr-contact" class="tab-content">
-                <div class="card">
-                    <h2><span class="icon">✉️</span> İletişim</h2>
-                    <p>Gizlilik politikası, uygulama içerikleri veya teknik konulardaki sorularınız için bize ulaşabilirsiniz:</p>
-
-                    <div class="highlight-box">
-                        <strong>E-posta:</strong> kanitdefteri@gmail.com
-                    </div>
-
-                    <h3>Geliştirici Kurum</h3>
-                    <p>Akdeniz Üniversitesi<br>Kumluca Sağlık Bilimleri Fakültesi<br>Hemşirelik Bölümü<br>Antalya, Türkiye</p>
-                </div>
-
-                <div class="card">
-                    <h2><span class="icon">⚖️</span> Sorumluluk Reddi</h2>
-                    <p>Bu uygulama eğitim amaçlıdır ve tıbbi tavsiye yerine geçmez. Klinik kararlar her zaman hastanın bireysel durumuna, kurumsal protokollere ve sorumlu hekimin değerlendirmesine göre verilmelidir.</p>
-                    <p>İçeriklerin doğruluğu düzenli kontrol edilmekle birlikte, en güncel bilgi için birincil kaynaklara başvurmanız önerilir.</p>
-
-                    <h3>Telif Hakları</h3>
-                    <p>Tüm içerikler, yayınlanmış bilimsel araştırmalardan elde edilen bulguların özgün ifadelerle özetlenmesiyle hazırlanmıştır. Bu uygulama, eğitim amaçlı adil kullanım (fair use) ilkesine uygun olarak hazırlanmıştır.</p>
-                    <p style="font-size:13px; color:#888;">© 2026 Kanıt Defteri. Tüm orijinal araştırma makaleleri ilgili yazarlara ve yayınevlerine aittir.</p>
-                </div>
+            <div class="footer">
+                <p>© 2026 Kanıt Defteri · Son güncelleme: Mart 2026</p>
             </div>
         </div>
 
-        <!-- ════════════════════ ENGLISH ════════════════════ -->
+        <!-- ── ENGLISH ── -->
         <div id="lang-en" class="lang-section">
 
-            <!-- ABOUT TAB -->
-            <div id="en-about" class="tab-content active">
-                <div class="card">
-                    <h2><span class="icon">📱</span> About the App</h2>
-                    <p>Kanıt Defteri (Evidence Notebook) is a free mobile application designed to help nurses and nursing students quickly access the most current evidence-based information in their clinical practices.</p>
-                    <p>The content consists of systematic reviews, meta-analyses, and clinical practice guidelines compiled from internationally reliable databases such as PubMed, Cochrane Library, MEDLINE, Embase, and Scopus.</p>
+            <h2>About the App</h2>
+            <p>Kanıt Defteri (Evidence Notebook) is a free reference tool designed to help nurses and nursing students quickly access evidence-based information in clinical practice. The content is compiled from PubMed, Cochrane Library, Embase, Scopus, and international clinical practice guidelines (WHO, NICE, CDC, AHA).</p>
+            <p>All evidence is classified according to the Oxford Centre for Evidence-Based Medicine levels. The app covers over 324 evidence items across 12 nursing specialties, from wound care and cardiovascular nursing to pediatrics and mental health.</p>
+            <p>Developed at Akdeniz University, Kumluca Faculty of Health Sciences, Department of Nursing, under the advisorship of Assoc. Prof. Aysun Ünal.</p>
 
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">324+</span>
-                            <span class="stat-label">Evidence Items</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">12</span>
-                            <span class="stat-label">Categories</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5</span>
-                            <span class="stat-label">Source Databases</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">2</span>
-                            <span class="stat-label">Languages (TR/EN)</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="divider"></div>
 
-                <div class="card">
-                    <h2><span class="icon">⭐</span> Features</h2>
-                    <ul class="feature-list">
-                        <li>
-                            <div class="feat-icon" style="background:#e3f2fd;">🔍</div>
-                            <div class="feat-text">
-                                <strong>Advanced Search</strong>
-                                <span>Full-text search with filters by evidence level, category, and database</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#fce4ec;">❤️</div>
-                            <div class="feat-text">
-                                <strong>Save Favorites</strong>
-                                <span>Bookmark important evidence for quick access</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#e8f5e9;">📊</div>
-                            <div class="feat-text">
-                                <strong>Oxford Evidence Levels</strong>
-                                <span>All evidence classified according to Oxford CEBM levels (Ia - V)</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#f3e5f5;">🌙</div>
-                            <div class="feat-text">
-                                <strong>Dark Mode</strong>
-                                <span>Eye-friendly dark theme support</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#fff3e0;">🌐</div>
-                            <div class="feat-text">
-                                <strong>Bilingual Support</strong>
-                                <span>Turkish and English interface and content</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="feat-icon" style="background:#e0f7fa;">📴</div>
-                            <div class="feat-text">
-                                <strong>Works Offline</strong>
-                                <span>No internet required — all data stored on device</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <h2>Privacy Policy</h2>
 
-                <div class="card">
-                    <h2><span class="icon">🏥</span> Categories</h2>
-                    <p>Evidence-based content across 12 nursing specialties:</p>
-                    <div class="source-grid">
-                        <div class="source-item"><span class="source-name">🩹 Wound Care</span></div>
-                        <div class="source-item"><span class="source-name">🛡️ Infection Control</span></div>
-                        <div class="source-item"><span class="source-name">💊 Pain Management</span></div>
-                        <div class="source-item"><span class="source-name">🥗 Nutrition</span></div>
-                        <div class="source-item"><span class="source-name">🫁 Respiratory Care</span></div>
-                        <div class="source-item"><span class="source-name">❤️ Cardiovascular</span></div>
-                        <div class="source-item"><span class="source-name">💉 Medication</span></div>
-                        <div class="source-item"><span class="source-name">⚠️ Patient Safety</span></div>
-                        <div class="source-item"><span class="source-name">🩸 Diabetes Care</span></div>
-                        <div class="source-item"><span class="source-name">🧠 Mental Health</span></div>
-                        <div class="source-item"><span class="source-name">👶 Pediatrics</span></div>
-                        <div class="source-item"><span class="source-name">🤰 Women's Health</span></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2><span class="icon">🎓</span> Developer</h2>
-                    <p>This application was developed through the collaborative work of students at <strong>Akdeniz University Kumluca Faculty of Health Sciences, Department of Nursing</strong>.</p>
-                    <div class="highlight-box">
-                        <strong>Faculty Advisor:</strong> Assoc. Prof. Aysun ÜNAL<br>
-                        <strong>Project Manager:</strong> Murat ALİM
-                    </div>
-                </div>
+            <div class="callout">
+                <p>Kanıt Defteri does not collect any personal data, does not send data to any server, and does not share any information with third parties.</p>
             </div>
 
-            <!-- PRIVACY TAB -->
-            <div id="en-privacy" class="tab-content">
-                <div class="card">
-                    <h2><span class="icon">🔒</span> Privacy Policy</h2>
+            <h3>Data Collection</h3>
+            <p>The app works entirely offline and does not require an internet connection. No user information — including identity, location, usage patterns, or health data — is collected, processed, or transmitted to any server.</p>
 
-                    <div class="highlight-box green">
-                        <strong>Kanıt Defteri does not collect, store, or share any personal data with third parties.</strong>
-                    </div>
+            <h3>On-Device Storage</h3>
+            <p>The following preferences are stored locally on your device only:</p>
+            <ul>
+                <li>Your list of saved (favorited) evidence items</li>
+                <li>Your theme preference (light or dark)</li>
+                <li>Your language preference (Turkish or English)</li>
+            </ul>
+            <p>This data is stored via the device's SQLite database and AsyncStorage, and is never transmitted externally. Uninstalling the app permanently deletes all local data.</p>
 
-                    <h3>1. Data Collection</h3>
-                    <p>This application does not collect any personal data. The app works entirely offline and does not require an internet connection. No user data is sent to any server.</p>
+            <h3>Analytics, Advertising, and Tracking</h3>
+            <p>The app does not use any analytics tools, advertising SDKs, cookies, or tracking technologies. User behavior is not monitored in any way.</p>
 
-                    <h3>2. Local Storage</h3>
-                    <p>The following data is stored only locally on your device and is never transmitted externally:</p>
-                    <ul>
-                        <li><strong>Favorite evidence:</strong> Your list of saved evidence items</li>
-                        <li><strong>App preferences:</strong> Your theme (light/dark) and language (Turkish/English) selections</li>
-                    </ul>
-                    <p>This data is stored on your device via SQLite database and AsyncStorage. All local data is permanently deleted when you uninstall the app.</p>
+            <h3>Third-Party Links</h3>
+            <p>DOI links on evidence detail pages open your device's default browser when tapped. This action is handled by the operating system; the app does not transmit any data during this process.</p>
 
-                    <h3>3. Analytics and Tracking</h3>
-                    <p>This application does not use any analytics tools, tracking technologies, cookies, or advertising SDKs.</p>
+            <h3>Children's Privacy</h3>
+            <p>Since the app does not collect any user data, it poses no additional risk to children's privacy.</p>
 
-                    <h3>4. Third-Party Services</h3>
-                    <p>The app does not send data to any third-party services. DOI links within the app open your device's default browser when tapped; this action is entirely managed by your device's operating system.</p>
+            <h3>Policy Updates</h3>
+            <p>This privacy policy may be updated as needed. Updates will be published on this page.</p>
 
-                    <h3>5. Children's Privacy</h3>
-                    <p>Since this application does not collect any data, it does not pose any specific risk to children's privacy.</p>
+            <div class="divider"></div>
 
-                    <h3>6. Changes</h3>
-                    <p>This privacy policy may be updated. Changes will be published on this page.</p>
+            <h2>Disclaimer</h2>
+            <p>Kanıt Defteri is developed for educational purposes and does not replace professional medical advice. Clinical decisions should be based on the individual patient's condition, institutional protocols, and the attending physician's assessment. While content accuracy is regularly reviewed, consulting primary sources for the most current information is always recommended.</p>
 
-                    <p style="color:#888; font-size:13px; margin-top:24px; padding-top:16px; border-top:1px solid #eee;">Last updated: March 2026</p>
-                </div>
-            </div>
+            <h2>Copyright</h2>
+            <p>App content has been created by summarizing scientific research findings in original wording; no article has been copied in full. Bibliographic references are presented in accordance with international citation standards. This application complies with the fair use for educational purposes principle under Turkish Intellectual Property Law (Article 33) and international copyright legislation.</p>
 
-            <!-- EVIDENCE LEVELS TAB -->
-            <div id="en-evidence" class="tab-content">
-                <div class="card">
-                    <h2><span class="icon">🔬</span> Evidence Levels</h2>
-                    <p>Evidence levels indicate the reliability and quality ranking of research. This application is based on the <strong>Oxford Centre for Evidence-Based Medicine</strong> classification.</p>
+            <div class="divider"></div>
 
-                    <div class="level-grid">
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#1a5276,#2980b9);">Ia</span>
-                            <span class="level-text"><strong>Systematic Review / Meta-analysis</strong> — Strongest evidence</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#1e8449,#27ae60);">Ib</span>
-                            <span class="level-text"><strong>Randomized Controlled Trial</strong> — Strong evidence</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#7d3c98,#a569bd);">IIa</span>
-                            <span class="level-text"><strong>Controlled Study</strong> — Moderate-strong evidence</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#d4ac0d,#f1c40f);">IIb</span>
-                            <span class="level-text"><strong>Quasi-Experimental Study</strong> — Moderate evidence</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#e67e22,#f39c12);">III</span>
-                            <span class="level-text"><strong>Descriptive Study</strong> — Comparative, correlational</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#cb4335,#e74c3c);">IV</span>
-                            <span class="level-text"><strong>Expert Committee Opinion</strong> — Clinical experience</span>
-                        </div>
-                        <div class="level-item">
-                            <span class="level-badge" style="background:linear-gradient(135deg,#7f8c8d,#95a5a6);">V</span>
-                            <span class="level-text"><strong>Case Report / Expert Opinion</strong></span>
-                        </div>
-                    </div>
-                </div>
+            <h2>Contact</h2>
+            <p>For inquiries: <a href="mailto:kanitdefteri@gmail.com">kanitdefteri@gmail.com</a></p>
+            <p>Akdeniz University · Kumluca Faculty of Health Sciences · Department of Nursing · Antalya, Turkey</p>
 
-                <div class="card">
-                    <h2><span class="icon">📚</span> Source Databases</h2>
-                    <div class="source-grid">
-                        <div class="source-item">
-                            <span class="source-name">PubMed</span>
-                            <div class="source-desc">US National Library of Medicine biomedical database</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Cochrane Library</span>
-                            <div class="source-desc">Gold standard for systematic reviews and meta-analyses</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Embase</span>
-                            <div class="source-desc">Elsevier pharmacology and biomedical research database</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Scopus</span>
-                            <div class="source-desc">World's largest abstract and citation database</div>
-                        </div>
-                        <div class="source-item">
-                            <span class="source-name">Clinical Guidelines</span>
-                            <div class="source-desc">WHO, NICE, CDC, AHA guidelines</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CONTACT TAB -->
-            <div id="en-contact" class="tab-content">
-                <div class="card">
-                    <h2><span class="icon">✉️</span> Contact</h2>
-                    <p>For questions about the privacy policy, app content, or technical issues, please reach out to us:</p>
-
-                    <div class="highlight-box">
-                        <strong>Email:</strong> kanitdefteri@gmail.com
-                    </div>
-
-                    <h3>Developer Institution</h3>
-                    <p>Akdeniz University<br>Kumluca Faculty of Health Sciences<br>Department of Nursing<br>Antalya, Turkey</p>
-                </div>
-
-                <div class="card">
-                    <h2><span class="icon">⚖️</span> Disclaimer</h2>
-                    <p>This app is for educational purposes and does not replace medical advice. Clinical decisions should always be made based on the individual patient's condition, institutional protocols, and the responsible physician's assessment.</p>
-                    <p>While the accuracy of the content is regularly checked, it is recommended to refer to primary sources for the most current information.</p>
-
-                    <h3>Copyright</h3>
-                    <p>All content has been prepared by summarizing findings from published scientific research in original wording. This application has been prepared in accordance with the fair use for educational purposes principle.</p>
-                    <p style="font-size:13px; color:#888;">© 2026 Kanıt Defteri. All original research articles belong to their respective authors and publishers.</p>
-                </div>
+            <div class="footer">
+                <p>© 2026 Kanıt Defteri · Last updated: March 2026</p>
             </div>
         </div>
-    </main>
 
-    <!-- ─── FOOTER ─── -->
-    <footer class="footer">
-        <p>© 2026 Kanıt Defteri — Akdeniz Üniversitesi Kumluca SBF Hemşirelik Bölümü</p>
-        <p><a href="mailto:kanitdefteri@gmail.com">kanitdefteri@gmail.com</a></p>
-    </footer>
+    </div>
 
     <script>
-        var currentLang = 'tr';
-        var currentTab = 'about';
-
-        var tabLabels = {
-            tr: { about: 'Uygulama', privacy: 'Gizlilik', evidence: 'Kanıt Düzeyleri', contact: 'İletişim' },
-            en: { about: 'About', privacy: 'Privacy', evidence: 'Evidence Levels', contact: 'Contact' }
-        };
-        var subtitles = {
-            tr: 'Hemşireler ve hemşirelik öğrencileri için kanıta dayalı uygulama rehberi',
-            en: 'Evidence-based practice guide for nurses and nursing students'
-        };
-
         function switchLang(lang) {
-            currentLang = lang;
             document.querySelectorAll('.lang-section').forEach(function(el) { el.classList.remove('active'); });
             document.getElementById('lang-' + lang).classList.add('active');
             document.getElementById('btn-tr').className = lang === 'tr' ? 'active' : '';
             document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
-            document.getElementById('hero-subtitle').textContent = subtitles[lang];
-            Object.keys(tabLabels[lang]).forEach(function(key) {
-                document.getElementById('tab-label-' + key).textContent = tabLabels[lang][key];
-            });
-            switchTab(currentTab);
-        }
-
-        function switchTab(tab) {
-            currentTab = tab;
-            document.querySelectorAll('.nav-tab').forEach(function(el, i) {
-                var tabs = ['about', 'privacy', 'evidence', 'contact'];
-                el.className = tabs[i] === tab ? 'nav-tab active' : 'nav-tab';
-            });
-            var prefix = currentLang;
-            document.querySelectorAll('#lang-' + prefix + ' .tab-content').forEach(function(el) { el.classList.remove('active'); });
-            var target = document.getElementById(prefix + '-' + tab);
-            if (target) target.classList.add('active');
+            document.getElementById('tagline').textContent = lang === 'tr'
+                ? 'Gizlilik Politikası ve Uygulama Bilgileri'
+                : 'Privacy Policy & App Information';
         }
     </script>
 </body>
